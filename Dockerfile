@@ -1,5 +1,14 @@
+# Use OpenJDK 11 slim as the base image
 FROM openjdk:11-jdk-slim
-ARG JAR_FILE=TARGET/*.jar
-COPY ${JAR_FILE} app.jar
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the built JAR file into the container
+COPY target/*.jar app.jar
+
+# Expose the application port
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+
+# Command to run the application
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
