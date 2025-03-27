@@ -2,7 +2,7 @@
 FROM openjdk:11-jdk-slim
 
 # Set the working directory inside the container
-WORKDIR /app
+
 
 ARG jar_file=target/*.jar
 # Copy the built JAR file into the container
