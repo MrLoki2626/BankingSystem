@@ -4,8 +4,9 @@ FROM openjdk:11-jdk-slim
 # Set the working directory inside the container
 WORKDIR /app
 
+ARG jar_file=target/*.jar
 # Copy the built JAR file into the container
-COPY target/bankingportal-0.0.1-SNAPSHOT.jar app.jar
+COPY ${jar_file} app.jar
 
 # Expose the application port
 EXPOSE 8080
